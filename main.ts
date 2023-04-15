@@ -1,0 +1,12 @@
+serial.redirectToUSB()
+basic.showIcon(IconNames.Yes)
+basic.forever(function () {
+    basic.showIcon(IconNames.Happy)
+    serial.writeString("left:")
+    serial.writeString("" + (mecanumRobot.LineTracking(LT.Left)))
+    serial.writeString("    right:")
+    serial.writeString("" + (mecanumRobot.LineTracking(LT.Right)))
+    serial.writeLine("")
+    basic.pause(200)
+    basic.showIcon(IconNames.Sad)
+})
